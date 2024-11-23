@@ -6,11 +6,9 @@ GitHub Insights is a feature within GitHub Enterprise that provides organization
 
 ## Key Features
 ### Team Productivity
-- Measures contributions across team members, including volume and frequency.
-- Allows managers to understand **team dynamics** and work distribution.
+- Measures contributions across team members, including volume and frequency,
+  allows managers to understand team dynamics and work distribution.
 
-GitHub Insights is especially useful for organizations using GitHub as a collaborative tool for software development,
-leveraging GitHub data to provide actionable metrics on **project** and **team efficiency**.
 
 ---
 
