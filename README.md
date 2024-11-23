@@ -152,4 +152,15 @@ GitHub Insights is a feature within GitHub Enterprise that provides organization
 ## TO DO
 ### Step 5: Automate
 - Automated data ingestion to upload only changes.
-```
+
+## TO DO
+- Describe uproach to security
+- CI/CD pipelines
+- Scheduled incremental imports
+- Monitoring and alerting
+- Show current solution limitations using metrics
+- Scalability to many repos, orgs, users
+- GDPR
+- Production infra, automated configuration
+- Initial development and long term support cost
+- Improve dashboard, add commits, Snowflake db schema
