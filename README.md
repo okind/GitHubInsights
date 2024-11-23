@@ -145,6 +145,8 @@ GitHub Insights is a feature within GitHub Enterprise that provides organization
 
 ### Step 4: Visualize
 - Created visualizations in **Tableau**.
+  ![Screenshot 2024-11-22 at 17 49 59](https://github.com/user-attachments/assets/20f51968-4be9-4069-8bc8-16aff042a867)
+
 
 ---
 
