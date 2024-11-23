@@ -164,3 +164,4 @@ GitHub Insights is a feature within GitHub Enterprise that provides organization
 - Production infra, automated configuration
 - Initial development and long term support cost
 - Improve dashboard, add commits, Snowflake db schema
+- Resiliency, data consistency and performance
