@@ -149,14 +149,15 @@ GitHub Insights is a feature within GitHub Enterprise that provides organization
     );
     ```
 #### Initial Commits Import
-1. commitsJobHandler.py
+1. **commitsJobHandler.py**
    - Using wrapper around GitHub API githubClient load commit to CSV File, commits.csv.
-2. commits_load.py
+2. **commits_load.py**
    - Define DAG 'csv_to_snowflake' that imports commits data from commits.csv to Snowflake database commits. 
-3. Run Dag 'csv_to_snowflake' in Airflow UI.
+3. Run Dag '**csv_to_snowflake**' in Airflow UI.
 4. Check loaded data in Snowflake database using SQL command
+   ```sql
    SELECT * FROM COMMITS.PUBLIC.COMMITS
-
+ ```
 ---
 ## TO DO
 ### Step 3: Transform
