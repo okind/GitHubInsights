@@ -96,10 +96,12 @@ GitHub Insights is a feature within GitHub Enterprise that provides organization
       - Default credentials:
         - Username: `airflow`
         - Password: `airflow`
+    - Create a connector to Snowflake. Follow Airflow UI, Admin -> Add Connection, for Connection Type choose Snowflake.
     - Stop services:
         ```bash
         docker-compose down
-        ```
+          ```
+     
 
 4. **Folder Mapping in Docker Compose**:
     ```yaml
@@ -114,10 +116,19 @@ GitHub Insights is a feature within GitHub Enterprise that provides organization
     ```bash
     cd /dbt
     ```
+6. Create Snowflake connection in Airflow UI (`Admin -> Connections`, 'Connection Type - Snowflake')
 
+{
+ "account: "SPECIFY_YOUR_ACCOUNT_IN_SNOWFLAKE",
+ "warehouse": "COMPUTE_WH",
+ "database": "COMMITS" ,
+ "role": "ETL_USER",
+ "insecure mode: False)
+}
 #### Snowflake Setup
-1. Create Snowflake connection in Airflow UI (`Admin -> Connections`).
-    - Created user `AIRFLOW_ETL` and role `ETL_USER` in Snowflake.
+1. Create in Snowflake
+    - User `AIRFLOW_ETL`
+    - Role `ETL_USER` 
     - Permissions:
         ```sql
         GRANT USAGE ON WAREHOUSE COMPUTE_WH TO ROLE ETL_USER;
@@ -126,7 +137,7 @@ GitHub Insights is a feature within GitHub Enterprise that provides organization
         GRANT INSERT, SELECT ON TABLE COMMITS.PUBLIC.COMMITS TO ROLE ETL_USER;
         ```
 
-2. Create Snowflake database (`commits`), schema (`public`), and table (`commits`):
+3. Create Snowflake database (`commits`), schema (`public`), and table (`commits`):
     ```sql
     CREATE OR REPLACE TABLE COMMITS.PUBLIC.COMMITS (
         SHA VARCHAR(16777216),
