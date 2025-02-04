@@ -117,13 +117,15 @@ GitHub Insights is a feature within GitHub Enterprise that provides organization
     cd /dbt
     ```
 6. **Create Snowflake connection in Airflow UI (`Admin -> Connections`, 'Connection Type - Snowflake')**
-   ```{
+   ```
+   {
      "account: "SPECIFY_YOUR_ACCOUNT_IN_SNOWFLAKE",
      "warehouse": "COMPUTE_WH",
      "database": "COMMITS" ,
      "role": "ETL_USER",
      "insecure mode: False)
-    }```
+    }
+   ```
 
 #### Snowflake Setup
 1. Create in Snowflake
