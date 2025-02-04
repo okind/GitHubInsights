@@ -112,19 +112,20 @@ GitHub Insights is a feature within GitHub Enterprise that provides organization
       - ./dbt:/dbt
     ```
 
-5. Use Docker Desktop Terminal to verify mappings:
+5. **Use Docker Desktop Terminal to verify mappings**:
     ```bash
     cd /dbt
     ```
-6. Create Snowflake connection in Airflow UI (`Admin -> Connections`, 'Connection Type - Snowflake')
+6. **Create Snowflake connection in Airflow UI (`Admin -> Connections`, 'Connection Type - Snowflake')**
 
-{
- "account: "SPECIFY_YOUR_ACCOUNT_IN_SNOWFLAKE",
- "warehouse": "COMPUTE_WH",
- "database": "COMMITS" ,
- "role": "ETL_USER",
- "insecure mode: False)
-}
+```{
+     "account: "SPECIFY_YOUR_ACCOUNT_IN_SNOWFLAKE",
+     "warehouse": "COMPUTE_WH",
+     "database": "COMMITS" ,
+     "role": "ETL_USER",
+     "insecure mode: False)
+    }```
+
 #### Snowflake Setup
 1. Create in Snowflake
     - User `AIRFLOW_ETL`
@@ -146,6 +147,14 @@ GitHub Insights is a feature within GitHub Enterprise that provides organization
         MESSAGE VARCHAR(16777216)
     );
     ```
+#### Initial Commits Import
+1. commitsJobHandler.py
+   - Using wrapper around GitHub API githubClient load commit to CSV File, commits.csv.
+2. commits_load.py
+   - Define DAG 'csv_to_snowflake' that imports commits data from commits.csv to Snowflake database commits. 
+3. Run Dag 'csv_to_snowflake' in Airflow UI.
+4. Check loaded data in Snowflake database using SQL command
+   SELECT * FROM COMMITS.PUBLIC.COMMITS
 
 ---
 ## TO DO
