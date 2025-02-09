@@ -1,4 +1,6 @@
+# Githubclient to fetch commits from a repository.
 import requests
+
 
 def fetch_github_commits(repo_owner, repo_name, token):
     """
@@ -36,7 +38,3 @@ def fetch_github_commits(repo_owner, repo_name, token):
     except requests.RequestException as e:
         print(f"Error fetching commits: {e}")
         return []
-
-
-
-

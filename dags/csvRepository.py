@@ -1,4 +1,7 @@
+# csvRepository savees commits data to a CSV file.
+
 import pandas as pd
+
 
 def save_commits_to_csv(commits_data, output_csv='commits.csv'):
     """
@@ -11,6 +14,7 @@ def save_commits_to_csv(commits_data, output_csv='commits.csv'):
     if commits_data:
         df = pd.DataFrame(commits_data)
         df.to_csv(output_csv, index=False)
-        print(f'Successfully saved {len(commits_data)} commits to {output_csv}')
+        print(f'Successfully saved {
+              len(commits_data)} commits to {output_csv}')
     else:
         print("No commit data to save.")

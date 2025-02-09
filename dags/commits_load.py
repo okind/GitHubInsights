@@ -1,11 +1,16 @@
 from airflow import DAG
-from airflow.providers.snowflake.operators.snowflake import SnowflakeOperator
-from airflow.operators.python import PythonOperator
-from datetime import datetime
-import pandas as pd
-import logging
-import snowflake.connector
 
+from airflow.providers.snowflake.operators.snowflake import SnowflakeOperator
+
+from airflow.operators.python import PythonOperator
+
+import datetime
+
+import pandas as pd
+
+import logging
+
+import snowflake.connector
 # Default DAG arguments
 default_args = {
     'owner': 'airflow',
@@ -23,6 +28,7 @@ with DAG(
 
     logging.basicConfig(level=logging.DEBUG)
     # Read CSV and load to Snowflake
+
     def load_csv_to_snowflake():
         # Read CSV file (Assuming the CSV is available locally)
         df = pd.read_csv('/opt/airflow/dags/commits.csv')
@@ -41,7 +47,6 @@ with DAG(
         hook = SnowflakeHook(snowflake_conn_id='snowflake_default')
         conn = hook.get_conn()
         cursor = conn.cursor()
-        
 
         # Insert rows one by one
         for row in data:
@@ -56,6 +61,6 @@ with DAG(
         task_id='load_csv_to_snowflake',
         python_callable=load_csv_to_snowflake
     )
-    
+
     # Set task dependencies (only one task here)
     load_csv_data
