@@ -9,8 +9,8 @@ import datetime
 import pandas as pd
 
 import logging
+from airflow.providers.snowflake.hooks.snowflake import SnowflakeHook
 
-import snowflake.connector
 # Default DAG arguments
 default_args = {
     'owner': 'airflow',
@@ -43,7 +43,6 @@ with DAG(
         """
 
         # Use the Snowflake connection to insert data
-        from airflow.providers.snowflake.hooks.snowflake import SnowflakeHook
         hook = SnowflakeHook(snowflake_conn_id='snowflake_default')
         conn = hook.get_conn()
         cursor = conn.cursor()
