@@ -67,7 +67,7 @@ GitHub Insights is a feature within GitHub Enterprise that provides organization
 
 ### Step 1: Extract
 - The `commitsJobHandler.py` extracts data from a GitHub repository and temporarily stores it in a CSV file.
-- Created project folder: `GitHubInsights`.
+- Created project folder: `GitHubInsights`. Initially it runs manually. 
 
 ---
 
@@ -77,6 +77,14 @@ GitHub Insights is a feature within GitHub Enterprise that provides organization
 2. Downloaded `docker-compose.yaml` file:
     ```bash
     curl -LfO 'https://airflow.apache.org/docs/apache-airflow/2.10.3/docker-compose.yaml'
+    ```
+    Set Folder Mapping in Docker Compose:
+    ```yaml
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./plugins:/opt/airflow/plugins
+      - ./dbt:/dbt
     ```
 3. **Run Apache Airflow with Docker Compose**:
     - Ensure Docker is installed:
@@ -103,14 +111,6 @@ GitHub Insights is a feature within GitHub Enterprise that provides organization
           ```
      
 
-4. **Folder Mapping in Docker Compose**:
-    ```yaml
-    volumes:
-      - ./dags:/opt/airflow/dags
-      - ./logs:/opt/airflow/logs
-      - ./plugins:/opt/airflow/plugins
-      - ./dbt:/dbt
-    ```
 
 5. **Use Docker Desktop Terminal to verify mappings**:
     ```bash
@@ -147,16 +147,34 @@ GitHub Insights is a feature within GitHub Enterprise that provides organization
         DATE DATE,
         MESSAGE VARCHAR(16777216)
     );
+
+    ALTER TABLE COMMITS.PUBLIC.COMMITS
+    ADD (
+    ADDITIONS NUMBER,
+    DELETIONS NUMBER,
+    TOTAL NUMBER
+    );
+
+    Final commits table definition
+    create or replace TABLE COMMITS.PUBLIC.COMMITS (
+	SHA VARCHAR(16777216),
+	AUTHOR VARCHAR(16777216),
+	DATE DATE,
+	MESSAGE VARCHAR(16777216),
+	ADDITIONS NUMBER(38,0),
+	DELETIONS NUMBER(38,0),
+	TOTAL NUMBER(38,0)
+    );
     ```
 #### Initial Commits Import
 1. **commitsJobHandler.py**
    - Using wrapper around GitHub API githubClient load commit to CSV File, commits.csv.
 2. **commits_load.py**
    - Define DAG 'csv_to_snowflake' that imports commits data from commits.csv to Snowflake database commits. 
-3. Run Dag '**csv_to_snowflake**' in Airflow UI.
+3. Run Dag '**csv_to_snowflake**' in Airflow UI. Starts manually. Change to scheduled.
 4. Check loaded data in Snowflake database using SQL command
    ```sql
-   SELECT * FROM COMMITS.PUBLIC.COMMITS
+   SELECT * FROM COMMITS.PUBLIC.COMMITS LIMIT 1000
  ```
 ---
 ## TO DO

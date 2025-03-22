@@ -14,7 +14,7 @@ from airflow.providers.snowflake.hooks.snowflake import SnowflakeHook
 # Default DAG arguments
 default_args = {
     'owner': 'airflow',
-    'start_date': datetime(2024, 1, 1),
+    'start_date': datetime.datetime(2024, 1, 1),
     'retries': 1
 }
 
@@ -38,8 +38,8 @@ with DAG(
 
         # Prepare Snowflake insert query
         insert_query = """
-        INSERT INTO commits (sha, author, date, message)
-        VALUES (%s, %s, %s, %s);
+        INSERT INTO commits (sha, author, date, message, additions, deletions, total)
+        VALUES (%s, %s, %s, %s, %s, %s, %s);
         """
 
         # Use the Snowflake connection to insert data
