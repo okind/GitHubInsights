@@ -1,23 +1,23 @@
-sha,author,date,message
-7dfb768638f39ebc85e34c6d8972fb47aa3e97ee,Dat Do,2020-11-09T01:52:26Z,Create LICENSE
-4f6f51df037a43a81f8023b70f92c26949955fe3,Dat Do,2020-11-09T01:42:50Z,added requirements.txt
-0bf626ce841b7eaf38f89bb8de7f6762df238c40,Dat Do,2020-11-09T01:37:17Z,minor updates.
+sha,author,date,message,additions,deletions,total
+7dfb768638f39ebc85e34c6d8972fb47aa3e97ee,Dat Do,2020-11-09T01:52:26Z,Create LICENSE,21,0,21
+4f6f51df037a43a81f8023b70f92c26949955fe3,Dat Do,2020-11-09T01:42:50Z,added requirements.txt,0,0,0
+0bf626ce841b7eaf38f89bb8de7f6762df238c40,Dat Do,2020-11-09T01:37:17Z,minor updates.,13,16,29
 011833250b2f9c07223e3c4d14032baac645f10d,Dat Do,2020-11-09T00:47:09Z,"Merge pull request #2 from pakfawwaz/csv
 
-Automatically store the data to csv"
-dbb019d7f0674d19fcfe4656710f5b14b7935f83,pakfawwaz,2020-08-18T13:45:30Z,Update main.py
+Automatically store the data to csv",11,2,13
+dbb019d7f0674d19fcfe4656710f5b14b7935f83,pakfawwaz,2020-08-18T13:45:30Z,Update main.py,1,1,2
 0d84258b8d66f7c11c19827a85ece59573f6bae9,pakfawwaz,2020-08-11T14:22:26Z,"Automatically store the data to csv
 
-Hope yall like this"
-e6e4b63c21ff7575ec10cf81d70a4ffd01f55fdc,Dat Do,2020-06-07T05:02:02Z,minor revisions.
-ddb4799efc5e1b657a75495aa170c30813f05aed,Dat Do,2020-06-07T04:59:52Z,Delete YT Comments Scraping-checkpoint.ipynb
-05dbb43046b6aaa7ab2bb4bed7f128228a3b4bd4,Dat Do,2020-06-07T04:59:01Z,git ignore updates.
-baff1aa4299486bc986946500960d378020ba651,Dat Do,2020-06-07T04:58:02Z,git ignore updates.
-365d8a430452a582e3637860923017f3c45e9bdf,Dat Do,2020-06-07T04:55:51Z,Minor updates.
-ca0386c0d4348a2cbb3de158a490c63abf71e079,Dat Do,2020-06-07T04:50:51Z,Refactored script.
-268ece4bb0c13279dff65475252500552e603813,Dat Do,2019-02-19T17:25:32Z,update ReadMe
-8d2702dbb2ad09ea4be7bfccd50b659212added6,Dat Do,2019-02-19T17:10:44Z,update ReadMe
-5ebcfdc16d7f9c4e9d8375f7f5535748b306c2cb,Dat Do,2019-02-19T16:41:03Z,update ReadME
-9e09fdee7aad7febdea07c1ac7cff5fc4fedb995,Dat Do,2019-02-19T16:38:31Z,created ReadME
-0d93a3c507f5f24b42b751def8d631b8704e3cc9,Dat Do,2019-02-19T16:32:40Z,replacing old file
-799b4e51c9df2d04dbcc0edcbdbf152703b9cdd3,Dat Do,2019-02-19T07:05:03Z,initial commit
+Hope yall like this",11,2,13
+e6e4b63c21ff7575ec10cf81d70a4ffd01f55fdc,Dat Do,2020-06-07T05:02:02Z,minor revisions.,0,104,104
+ddb4799efc5e1b657a75495aa170c30813f05aed,Dat Do,2020-06-07T04:59:52Z,Delete YT Comments Scraping-checkpoint.ipynb,0,104,104
+05dbb43046b6aaa7ab2bb4bed7f128228a3b4bd4,Dat Do,2020-06-07T04:59:01Z,git ignore updates.,1,1,2
+baff1aa4299486bc986946500960d378020ba651,Dat Do,2020-06-07T04:58:02Z,git ignore updates.,1,1,2
+365d8a430452a582e3637860923017f3c45e9bdf,Dat Do,2020-06-07T04:55:51Z,Minor updates.,3,2,5
+ca0386c0d4348a2cbb3de158a490c63abf71e079,Dat Do,2020-06-07T04:50:51Z,Refactored script.,97,0,97
+268ece4bb0c13279dff65475252500552e603813,Dat Do,2019-02-19T17:25:32Z,update ReadMe,2,2,4
+8d2702dbb2ad09ea4be7bfccd50b659212added6,Dat Do,2019-02-19T17:10:44Z,update ReadMe,108,1,109
+5ebcfdc16d7f9c4e9d8375f7f5535748b306c2cb,Dat Do,2019-02-19T16:41:03Z,update ReadME,1,1,2
+9e09fdee7aad7febdea07c1ac7cff5fc4fedb995,Dat Do,2019-02-19T16:38:31Z,created ReadME,4,0,4
+0d93a3c507f5f24b42b751def8d631b8704e3cc9,Dat Do,2019-02-19T16:32:40Z,replacing old file,104,298,402
+799b4e51c9df2d04dbcc0edcbdbf152703b9cdd3,Dat Do,2019-02-19T07:05:03Z,initial commit,298,0,298
