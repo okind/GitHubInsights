@@ -175,8 +175,8 @@ GitHub Insights is a feature within GitHub Enterprise that provides organization
 4. Check loaded data in Snowflake database using SQL command
    ```sql
    SELECT * FROM COMMITS.PUBLIC.COMMITS LIMIT 1000
- ```
----
+   ```
+
 ## TO DO
 ### Step 3: Transform
 - Use dbt to transform data and load into Snowflake.
@@ -193,16 +193,42 @@ GitHub Insights is a feature within GitHub Enterprise that provides organization
 ### Step 5: Automate
 - Automated data ingestion to upload only changes.
 
+## Project Epics & Tasks Overview
+
+| # | Epic| Key Tasks  | Priority |
+|---|---|---|---|
+| 1 | **Cost Management** | - Infrastructure cost<br>- Operational cost<br>- Development cost | High |
+| 2 | **Project Management** | - Add tasks to projects on GitHub | High |
+| 3 | **CI/CD and Infrastructure Setup** | - CI (Build in GitHub) - run tests<br>- CD<br>- Infra automation | High |
+| 4 | **APIs and Proxy Layer** | - API to get data, to request data<br>- RL (API Proxy/Gateway)<br>&nbsp;&nbsp; - Caching<br>&nbsp;&nbsp; - Billing | High |
+| 5 | **Build Data Pipeline** | - Add 2 fields: `lines_added`, `lines_deleted` from GitHub to Snowflake<br>- Create job to encode commits (job handler) in DAG<br>- Create DAG for users import to Snowflake to new fact table | High |
+| 6 | **Schema and Joins Optimization** | - Consider using `author_id` instead of `username` for joins (P2) | Medium |
+| 7 | **Code Quality and Testing** | - Define static types for each method<br>&nbsp;&nbsp; - Unit test + Function test<br>- Improve typing of input/output data using classes (P3)<br>- Refactor to remove duplicated code, introduce constants | Medium |
+| 8 | **Documentation** | - Write spec about changes (`README.md`) | Medium |
+| 9 | **Security and Observability** | - Security<br>- Logging / Monitoring / Alerting<br>&nbsp;&nbsp; - Runbook | High |
+| 10 | **Data Management and Governance** | - Data Catalog<br>- Data Quality<br>- Data Source History<br>- Data Governance | Medium |
+| 11 | **Data Processing and Scaling** | - Scale ETL pipeline to:<br>&nbsp;&nbsp; - More repos<br>&nbsp;&nbsp; - More orgs<br>&nbsp;&nbsp; - More users<br>&nbsp;&nbsp; - More commits<br>- Multi-tenancy | Low |
+
+---
+
+## Priority Legend:
+- **High** — Must be done first for system to function
+- **Medium** — Important but can be parallelized after foundations
+- **Low** — Post-launch or scaling tasks
+
+---
+
 ## TO DO
-- Describe uproach to security
-- CI/CD pipelines
-- Scheduled incremental imports
-- Monitoring and alerting
+- Describe approach to security
+- Set up CI/CD pipelines
+- Configure scheduled incremental imports
+- Implement monitoring and alerting
 - Show current solution limitations using metrics
-- Scalability to many repos, orgs, users
-- GDPR
-- Production infra, automated configuration
-- Initial development and long term support cost
-- Improve dashboard, add commits, Snowflake db schema
-- Resiliency, data consistency and performance
-- Add Analysis of commits data with DeepSeek AI model.
+- Plan scalability to many repos, orgs, and users
+- Ensure GDPR compliance
+- Set up production infrastructure with automated configuration
+- Estimate initial development and long-term support cost
+- Improve dashboard: add commits metrics, show Snowflake DB schema
+- Improve resiliency, ensure data consistency and optimize performance
+- Add analysis of commits data using DeepSeek AI model
+
