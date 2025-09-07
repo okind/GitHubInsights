@@ -13,6 +13,9 @@
                 "gitHubInsightsAPI.main:app",
                 "--reload"
             ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}\\gitHubInsightsAPI"
+            },
             "jinja": true
         }
     ]
