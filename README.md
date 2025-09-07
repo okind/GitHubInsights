@@ -187,6 +187,17 @@ GitHub Insights is a feature within GitHub Enterprise that provides organization
 - Created visualizations in **Tableau**.
   ![Screenshot 2024-11-22 at 17 49 59](https://github.com/user-attachments/assets/20f51968-4be9-4069-8bc8-16aff042a867)
 
+### Step 5: Make data accessible by API
+calculated aggregated data 
+query1 - Repo Weekly Commit Rate
+	list of pairs: Repo commits count | Week 
+```
+ CREATE OR REPLACE TABLE COMMITS.PUBLIC.repo_commits_by_week (
+  **week** DATE NOT NULL,
+  **repo_commits_count** INTEGER NOT NULL DEFAULT 0,
+  PRIMARY KEY (week)
+);
+```
 
 ---
 ## TO DO
