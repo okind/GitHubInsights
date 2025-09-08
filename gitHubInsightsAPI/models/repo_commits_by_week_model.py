@@ -31,7 +31,10 @@ class Base(DeclarativeBase):
 class RepoCommitsByWeekModel(Base):
     __tablename__ = "repo_commits_by_week"
 
-    # The table has no PK in DDL; ORM needs one. Using week as PK.
+    # repo_id is a primary key
+    repo_id: Mapped[int] = mapped_column(
+        IntNumeric(38, 0), primary_key=True, nullable=False)
+
     week: Mapped[date] = mapped_column(
         Date, primary_key=True, nullable=False)
 

@@ -17,10 +17,10 @@ class InsightsRepository:
     def __init__(self) -> None:
         self.session = get_snowflake_session()
 
-    def get_week(self, week_start: date) -> List[RepoCommitsByWeekModel]:
+    def get_insights_by_repo_id(self, repo_id: int) -> List[RepoCommitsByWeekModel]:
         """Fetch a single row by its week."""
         stmt = select(RepoCommitsByWeekModel).where(
-            RepoCommitsByWeekModel.week == week_start
+            RepoCommitsByWeekModel.repo_id == repo_id
         )
 
         result = self.session.execute(stmt)
