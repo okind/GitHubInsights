@@ -192,7 +192,8 @@ calculated aggregated data
 query1 - Repo Weekly Commit Rate
 	list of pairs: Repo commits count | Week 
 ```sql
- CREATE OR REPLACE TABLE COMMITS.PUBLIC.repo_commits_by_week (
+ REATE OR REPLACE TABLE COMMITS.PUBLIC.repo_commits_by_week (
+  repo_id int NOT NULL,
   week DATE NOT NULL,
   repo_commits_count INTEGER NOT NULL DEFAULT 0,
   PRIMARY KEY (week)
@@ -202,9 +203,17 @@ Grant access to Snowflake account to fetch aggregated data.
 ```sql
 GRANT INSERT, SELECT ON TABLE COMMITS.PUBLIC.repo_commits_by_week TO ROLE ETL_USER;
 ```
+Insert sample data
+```sql
+INSERT INTO COMMITS.PUBLIC.repo_commits_by_week (repo_id, week, repo_commits_count)
+VALUES
+(101, '2025-09-01', 52),
+(102, '2025-09-08', 35),
+(101, '2025-09-08', 21);
+```
 ---
 ## TO DO
-### Step 5: Automate
+### Step 6: Automate
 - Automated data ingestion to upload only changes.
 
 ## Project Epics & Tasks Overview
