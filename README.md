@@ -191,14 +191,17 @@ GitHub Insights is a feature within GitHub Enterprise that provides organization
 calculated aggregated data 
 query1 - Repo Weekly Commit Rate
 	list of pairs: Repo commits count | Week 
-```
+```sql
  CREATE OR REPLACE TABLE COMMITS.PUBLIC.repo_commits_by_week (
-  **week** DATE NOT NULL,
-  **repo_commits_count** INTEGER NOT NULL DEFAULT 0,
+  week DATE NOT NULL,
+  repo_commits_count INTEGER NOT NULL DEFAULT 0,
   PRIMARY KEY (week)
 );
 ```
-
+Grant access to Snowflake account to fetch aggregated data.
+```sql
+GRANT INSERT, SELECT ON TABLE COMMITS.PUBLIC.repo_commits_by_week TO ROLE ETL_USER;
+```
 ---
 ## TO DO
 ### Step 5: Automate
