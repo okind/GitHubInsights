@@ -192,11 +192,11 @@ calculated aggregated data
 query1 - Repo Weekly Commit Rate
 	list of pairs: Repo commits count | Week 
 ```sql
- REATE OR REPLACE TABLE COMMITS.PUBLIC.repo_commits_by_week (
+ CREATE OR REPLACE TABLE COMMITS.PUBLIC.repo_commits_by_week (
   repo_id int NOT NULL,
   week DATE NOT NULL,
   repo_commits_count INTEGER NOT NULL DEFAULT 0,
-  PRIMARY KEY (week)
+  PRIMARY KEY (repo_id)
 );
 ```
 Grant access to Snowflake account to fetch aggregated data.
